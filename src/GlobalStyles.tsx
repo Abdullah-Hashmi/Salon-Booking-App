@@ -1,22 +1,55 @@
 /* fonts */
 export const FontFamily = {
-  captionsCaption2L: 'Montserrat-Bold',
-  captionsCaption3M: 'Montserrat-SemiBold',
-  bodyBody4: 'Montserrat-Regular',
-  montserratBlack: 'Montserrat-Black',
-  buttonsB2M: 'Poppins-Medium',
-  headingGazpachoH7: 'Poppins-Bold',
-  tagsT1SB: 'Poppins-SemiBold',
-  paragraphP2: 'Poppins-Regular',
+  // → Heading
+  H2_Light: 'DMSans-Medium',
+  H3_Regular: 'DMSans-Medium',
+  H4_Regular: 'DMSans-Bold',
+  H5_Regular: 'DMSans-Bold',
+  H6_Regular: 'DMSans-Bold',
+
+  // → Subtitle
+  S1_Regular: 'DMSans-Regular',
+  S2_Medium: 'DMSans-Regular',
+
+  // → Paragraph
+  P1_Regular: 'DMSans-Regular',
+  P2_Regular: 'DMSans-Regular',
+
+  // → Button
+  B1_Bold: 'DMSans-Bold',
+  B2_Semibold: 'DMSans-Bold',
+  B3_Semibold: 'DMSans-Bold',
+
+  // → Label
+  L1_Semibold: 'DMSans-Bold',
+  L2_Regular: 'DMSans-Regular',
+  L2_Semibold: 'DMSans-Bold',
 };
 /* font sizes */
 export const FontSize = {
-  captionsCaption2L_size: 14,
-  buttonButton2_size: 18,
-  subtitlesSubtitle2L_size: 20,
-  labelsLabel2L_size: 16,
-  captionsCaption3M_size: 12,
-  titlesTitle2L_size: 28,
+  H2_Light: 58,
+  H3_Light: 46,
+  H4_Light: 33,
+  H5_Light: 23,
+  H6_Light: 19,
+
+  // → Subtitle
+  S1_Regular: 15,
+  S2_Medium: 13,
+
+  // → Paragraph
+  P1_Regular: 15,
+  P2_Regular: 13,
+
+  // → Button
+  B1_Bold: 16,
+  B2_Semibold: 14,
+  B3_Semibold: 12,
+
+  // → Label
+  L1_Semibold: 15,
+  L2_Regular: 10,
+  L2_Semibold: 10,
 };
 /* Colors */
 export const Color = {
@@ -75,9 +108,7 @@ export const Color = {
   Red_4: 'FFE5E5',
 
   // **************************************
-  neutral050: '#fff',
-  elevation2: '#21222a',
-  elevation0: '#181a1f',
+
   opacity5b: 'rgba(0, 0, 0, 0.05)',
   opacity60b: 'rgba(0, 0, 0, 0.6)',
   opacity10b: 'rgba(0, 0, 0, 0.1)',
