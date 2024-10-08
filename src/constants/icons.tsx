@@ -3,13 +3,14 @@ const dark16upDown_arrow = require('../assets/icons/icons16px/dark/upDownArrow.p
 const dark16check_circle = require('../assets/icons/icons16px/dark/check-circle.png');
 const dark16check = require('../assets/icons/icons16px/dark/check.png');
 const dark16_close = require('../assets/icons/icons16px/dark/close.png');
-const dark16 = require('../assets/icons/apple-logo.png');
 const dark16_dollar = require('../assets/icons/icons16px/dark/dollar-sign2.png');
 const dark16_Frame = require('../assets/icons/icons16px/dark/Frame15.png');
 const dark16_home = require('../assets/icons/icons16px/dark/home.png');
 const dark16_minus = require('../assets/icons/icons16px/dark/minus.png');
 const dark16_moon = require('../assets/icons/icons16px/dark/moon.png');
+const dark16_noon = require('../assets/icons/icons16px/dark/noon.png');
 const dark16_offer = require('../assets/icons/icons16px/dark/offer.png');
+const dark16_phone = require('../assets/icons/icons16px/dark/phone.png');
 const dark16_pinOutline = require('../assets/icons/icons16px/dark/pin-outline.png');
 const dark16_placeholder = require('../assets/icons/icons16px/dark/placeholder.png');
 const dark16_plus = require('../assets/icons/icons16px/dark/plus.png');
@@ -57,5 +58,120 @@ const dark24_trending_up = require('../assets/icons/icons24px/dark/trending-up.p
 const dark24_user = require('../assets/icons/icons24px/dark/user.png');
 
 //light 16 px
+const light16_check_check_circle = require('../assets/icons/icons16px/light/check-circle.png');
+const light16_check = require('../assets/icons/icons16px/light/check.png');
+const light16_close = require('../assets/icons/icons16px/light/close.png');
+const light16_dollar_sign = require('../assets/icons/icons16px/light/dollar-sign.png');
+const light16_fram_14 = require('../assets/icons/icons16px/light/Frame14.png');
+const light16_home = require('../assets/icons/icons16px/light/home.png');
+const light16_minus = require('../assets/icons/icons16px/light/minus.png');
+const light16_moon = require('../assets/icons/icons16px/light/moon.png');
+const light16_noon = require('../assets/icons/icons16px/light/noon.png');
+const light16_offer = require('../assets/icons/icons16px/light/offer.png');
+const light16_phone = require('../assets/icons/icons16px/light/phone.png');
+const light16_pin_outline = require('../assets/icons/icons16px/light/pin-outline.png');
+const light16_placeholder = require('../assets/icons/icons16px/light/placeholder.png');
+const light16_plus = require('../assets/icons/icons16px/light/plus.png');
+const light16_search = require('../assets/icons/icons16px/light/search.png');
+const light16_share = require('../assets/icons/icons16px/light/share.png');
+const light16_sun = require('../assets/icons/icons16px/light/sun.png');
+const light16_upDownArrow = require('../assets/icons/icons16px/light/upDownArrow.png');
 
-const light16_sun = require('../assets/icons/icons16px/light/check.png');
+//24px light
+const light24_address = require('../assets/icons/icons24px/light/address.png');
+const light24_upDown_arrow = require('../assets/icons/icons24px/light/upDownArrow.png');
+const light24_back = require('../assets/icons/icons24px/light/back.png');
+const light24_bell = require('../assets/icons/icons24px/light/bell.png');
+const light24_calender = require('../assets/icons/icons24px/light/calendar.png');
+const light24_check_cicle = require('../assets/icons/icons24px/light/check-circle.png');
+const light24_check = require('../assets/icons/icons24px/light/check.png');
+const light24_close = require('../assets/icons/icons24px/light/close.png');
+const light24_credit_card = require('../assets/icons/icons24px/light/credit-card.png');
+const light24_light_1 = require('../assets/icons/icons24px/light/light1.png');
+const light24_heart_full = require('../assets/icons/icons24px/light/heart-full.png');
+const light24_heart = require('../assets/icons/icons24px/light/heart.png');
+const light24_help = require('../assets/icons/icons24px/light/help.png');
+const light24_home_address = require('../assets/icons/icons24px/light/home-address.png');
+const light24_home = require('../assets/icons/icons24px/light/home.png');
+const light24_info = require('../assets/icons/icons24px/light/info.png');
+const light24_input_correct = require('../assets/icons/icons24px/light/input-correct.png');
+const light24_input_wrong = require('../assets/icons/icons24px/light/input-wrong.png');
+const light24_list_outline = require('../assets/icons/icons24px/light/list-outline.png');
+const light24_list = require('../assets/icons/icons24px/light/list.png');
+const light24_log_out = require('../assets/icons/icons24px/light/log-out.png');
+const light24_minus = require('../assets/icons/icons24px/light/minus.png');
+const light24_mobile_no = require('../assets/icons/icons24px/light/mobile-no.png');
+const light24_moon = require('../assets/icons/icons24px/light/moon.png');
+const light24_noon = require('../assets/icons/icons24px/light/noon.png');
+const light24_offer = require('../assets/icons/icons24px/light/offer.png');
+const light24_phone = require('../assets/icons/icons24px/light/phone.png');
+const light24_pin_outline = require('../assets/icons/icons24px/light/pin-outline.png');
+const light24_placeholder = require('../assets/icons/icons24px/light/placeholder.png');
+const light24_plus = require('../assets/icons/icons24px/light/plus.png');
+const light24_search = require('../assets/icons/icons24px/light/search.png');
+const light24_share = require('../assets/icons/icons24px/light/share.png');
+const light24_shop = require('../assets/icons/icons24px/light/shop.png');
+const light24_sun = require('../assets/icons/icons24px/light/sun.png');
+const light24_trending_up = require('../assets/icons/icons24px/light/trending-up.png');
+const light24_user = require('../assets/icons/icons24px/light/user.png');
+
+export default {
+  //dark 16px
+  dark16upDown_arrow,
+  dark16check_circle,
+  dark16check,
+  dark16_close,
+  dark16_dollar, //
+  dark16_Frame,
+  dark16_home,
+  dark16_minus,
+  dark16_moon,
+  dark16_noon,
+  dark16_offer,
+  dark16_phone,
+  dark16_pinOutline,
+  dark16_placeholder,
+  dark16_plus,
+  dark16_search,
+  dark16_sun,
+  dark16_share,
+
+  // dark 24px
+  dark24_address,
+  dark24_back,
+  dark24_bell,
+  dark24_calender,
+  dark24_check_cicle,
+  dark24_check,
+  dark24_close,
+  dark24_credit_card,
+  dark24_dark_1,
+  dark24_heart,
+  dark24_heart_full,
+  dark24_help,
+  dark24_home_address,
+  dark24_home,
+  dark24_info,
+  dark24_input_correct,
+  dark24_input_wrong,
+  dark24_list_outline,
+  dark24_list,
+  dark24_log_out,
+  dark24_minus,
+  dark24_mobile_no,
+  dark24_moon,
+  dark24_noon,
+  dark24_offer,
+  dark24_phone,
+  dark24_pin_outline,
+  dark24_placeholder,
+  dark24_plus,
+  dark24_Rectangle83,
+  dark24_search,
+  dark24_share,
+  dark24_shop,
+  dark24_sun,
+  dark24_trending_up,
+  dark24_upDown_arrow,
+  dark24_user,
+};
