@@ -58,7 +58,7 @@ const dark24_trending_up = require('../assets/icons/icons24px/dark/trending-up.p
 const dark24_user = require('../assets/icons/icons24px/dark/user.png');
 
 //light 16 px
-const light16_check_check_circle = require('../assets/icons/icons16px/light/check-circle.png');
+const light16_check_circle = require('../assets/icons/icons16px/light/check-circle.png');
 const light16_check = require('../assets/icons/icons16px/light/check.png');
 const light16_close = require('../assets/icons/icons16px/light/close.png');
 const light16_dollar_sign = require('../assets/icons/icons16px/light/dollar-sign.png');
@@ -81,6 +81,7 @@ const light16_upDownArrow = require('../assets/icons/icons16px/light/upDownArrow
 const light24_address = require('../assets/icons/icons24px/light/address.png');
 const light24_upDown_arrow = require('../assets/icons/icons24px/light/upDownArrow.png');
 const light24_back = require('../assets/icons/icons24px/light/back.png');
+const light24_briefcase = require('../assets/icons/icons24px/light/briefcase.png');
 const light24_bell = require('../assets/icons/icons24px/light/bell.png');
 const light24_calender = require('../assets/icons/icons24px/light/calendar.png');
 const light24_check_cicle = require('../assets/icons/icons24px/light/check-circle.png');
@@ -174,4 +175,62 @@ export default {
   dark24_trending_up,
   dark24_upDown_arrow,
   dark24_user,
+
+  // light 16px
+  light16_check_circle,
+  light16_check,
+  light16_close,
+  light16_dollar_sign,
+  light16_fram_14,
+  light16_home,
+  light16_minus,
+  light16_moon,
+  light16_noon,
+  light16_offer,
+  light16_phone,
+  light16_pin_outline,
+  light16_placeholder,
+  light16_plus,
+  light16_search,
+  light16_share,
+  light16_sun,
+  light16_upDownArrow,
+
+  // light 24px
+  light24_address,
+  light24_back,
+  light24_bell,
+  light24_briefcase,
+  light24_calender,
+  light24_check_cicle,
+  light24_check,
+  light24_close,
+  light24_credit_card,
+  light24_heart_full,
+  light24_heart,
+  light24_home_address,
+  light24_home,
+  light24_info,
+  light24_input_correct,
+  light24_input_wrong,
+  light24_light_1,
+  light24_list,
+  light24_list_outline,
+  light24_log_out,
+  light24_mobile_no,
+  light24_minus,
+  light24_moon,
+  light24_noon,
+  light24_offer,
+  light24_phone,
+  light24_pin_outline,
+  light24_placeholder,
+  light24_plus,
+  light24_search,
+  light24_share,
+  light24_shop,
+  light24_sun,
+  light24_trending_up,
+  light24_upDown_arrow,
+  light24_user,
 };
