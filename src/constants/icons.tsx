@@ -55,3 +55,6 @@ const dark24_shop = require('../assets/icons/icons24px/dark/shop.png');
 const dark24_sun = require('../assets/icons/icons24px/dark/sun.png');
 const dark24_trending_up = require('../assets/icons/icons24px/dark/trending-up.png');
 const dark24_user = require('../assets/icons/icons24px/dark/user.png');
+
+//light 16 px
+const light16_check_circle = require('../assets/icons/icons16px/');
