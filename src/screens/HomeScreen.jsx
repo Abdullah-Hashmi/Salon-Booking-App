@@ -4,7 +4,7 @@ const HomeScreen = () => {
   return (
     <SafeAreaView
       style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>HomeScreen</Text>
+      <Text style={{fontSize: 30, color: 'red'}}>HomeScreen</Text>
     </SafeAreaView>
   );
 };
