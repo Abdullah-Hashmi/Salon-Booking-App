@@ -12,6 +12,10 @@ import {
 import {slides} from '../data';
 import React from 'react';
 import {Colors, FontFamily, FontSize} from '../GlobalStyles';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 const {height, width} = Dimensions.get('window');
 
@@ -22,6 +26,8 @@ const Slide = ({item}) => {
         source={item?.image}
         style={{height: '100%', width: '100%', resizeMode: 'cover'}}
       />
+      {/* semi-transparent overlay for shadow/mask effect */}
+      <View style={styles.overlay} />
       {/* text overlay */}
       <View style={styles.textContainer}>
         <Text style={styles.title}>{item?.title}</Text>
@@ -32,6 +38,12 @@ const Slide = ({item}) => {
 
 const Onboarding = ({navigation}) => {
   const [currentSlideIndex, setCurrentSlideIndex] = React.useState(0);
+  const updateCurrentSlideIndex = e => {
+    const contentOffset = e.nativeEvent.contentOffset.x;
+    const currentIndex = Math.round(contentOffset / width);
+    console.log(currentIndex);
+    setCurrentSlideIndex(currentIndex);
+  };
   const Footer = () => {
     return (
       <View style={styles.footerContainer}>
@@ -51,8 +63,29 @@ const Onboarding = ({navigation}) => {
         </View>
         <View style={{marginBottom: 20}}>
           <View style={{flexDirection: 'row'}}>
-            <TouchableOpacity>
-              <Text>Next</Text>
+            <TouchableOpacity
+              style={[
+                styles.btn,
+                {
+                  borderColor: Colors.Light_4,
+                  borderWidth: 1,
+                  backgroundColor: 'transparent',
+                },
+              ]}>
+              <Text style={{color: Colors.Light_4, fontSize: FontSize.B1_Bold}}>
+                Login
+              </Text>
+            </TouchableOpacity>
+            <View style={{width: 15}} />
+            <TouchableOpacity
+              style={[styles.btn, {backgroundColor: Colors.Light_4}]}>
+              <Text
+                style={{
+                  color: Colors.Purple_2_Base,
+                  fontSize: FontSize.B1_Bold,
+                }}>
+                Get staerted
+              </Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -68,6 +101,7 @@ const Onboarding = ({navigation}) => {
       }}>
       <StatusBar backgroundColor={Colors.white} />
       <FlatList
+        onMomentumScrollEnd={updateCurrentSlideIndex}
         data={slides}
         renderItem={({item}) => <Slide item={item} />}
         horizontal
@@ -88,22 +122,25 @@ const styles = StyleSheet.create({
     bottom: 100, // Position title above footer
     width: '100%',
     alignItems: 'center',
-    paddingHorizontal: 20,
+    paddingHorizontal: 15,
   },
   title: {
     color: Colors.Light_4,
     fontSize: FontSize.H4_Light,
-    fontFamily: FontFamily.H4_Regular,
-    textShadowOffset: {width: 4, height: 1},
-    textShadowRadius: 15,
-    fontWeight: 'regular',
+    fontFamily: FontFamily.H4_bold,
+    // textShadowOffset: {width: 4, height: 1},
+    // textShadowRadius: 15,
+    fontWeight: 'bold',
+    paddingHorizontal: 10,
+
+    height: hp(31),
   },
   footerContainer: {
     position: 'absolute',
     bottom: 16, // Position footer at the bottom
     width: '100%',
     justifyContent: 'space-between',
-    paddingHorizontal: 20,
+    paddingHorizontal: 15,
   },
   indicatorContainer: {
     flexDirection: 'row',
@@ -118,6 +155,22 @@ const styles = StyleSheet.create({
     borderRadius: 7,
     alignItems: 'center',
     marginHorizontal: 5,
+    marginBottom: 40,
   },
-  buttonContainer: {},
+  btn: {
+    flex: 1,
+    height: 48,
+    borderRadius: 7,
+    backgroundColor: Colors.Orange_1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  overlay: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: 'rgba(0,0,0,0.4)',
+  },
 });

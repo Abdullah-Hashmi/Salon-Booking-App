@@ -20,6 +20,6 @@ export const slides = [
     id: 4,
     image: images.Intro_4_BG,
     title:
-      'Search for the best parlournear you to fulfil all your beauty needs',
+      'Search for the best parlour near you to fulfil all your beauty needs',
   },
 ];
