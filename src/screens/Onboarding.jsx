@@ -64,6 +64,7 @@ const Onboarding = ({navigation}) => {
         <View style={{marginBottom: 20}}>
           <View style={{flexDirection: 'row'}}>
             <TouchableOpacity
+              onPress={() => navigation.navigate('Login')}
               style={[
                 styles.btn,
                 {
@@ -78,6 +79,7 @@ const Onboarding = ({navigation}) => {
             </TouchableOpacity>
             <View style={{width: 15}} />
             <TouchableOpacity
+              onPress={() => navigation.navigate('SignUp')}
               style={[styles.btn, {backgroundColor: Colors.Light_4}]}>
               <Text
                 style={{
@@ -171,6 +173,6 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    backgroundColor: 'rgba(0,0,0,0.4)',
+    backgroundColor: 'rgba(0,0,0,0.3)',
   },
 });

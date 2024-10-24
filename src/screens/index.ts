@@ -1,7 +1,6 @@
-// export {default as HomeScreen} from './HomeScreen';
-// export {default as Onboarding} from './Onboarding';
-
 import HomeScreen from './HomeScreen';
 import Onboarding from './Onboarding';
+import SignUp from './SignUp';
+import Login from './Login';
 
-export {HomeScreen, Onboarding};
+export {HomeScreen, Onboarding, SignUp, Login};
