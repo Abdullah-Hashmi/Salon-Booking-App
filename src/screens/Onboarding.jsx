@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   StyleSheet,
   Text,
@@ -10,7 +11,6 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {slides} from '../data';
-import React from 'react';
 import {Colors, FontFamily, FontSize} from '../GlobalStyles';
 import {
   widthPercentageToDP as wp,
@@ -19,98 +19,85 @@ import {
 
 const {height, width} = Dimensions.get('window');
 
-const Slide = ({item}) => {
-  return (
-    <View style={{width, height}}>
-      <Image
-        source={item?.image}
-        style={{height: '100%', width: '100%', resizeMode: 'cover'}}
-      />
-      {/* semi-transparent overlay for shadow/mask effect */}
-      <View style={styles.overlay} />
-      {/* text overlay */}
-      <View style={styles.textContainer}>
-        <Text style={styles.title}>{item?.title}</Text>
-      </View>
+const Slide = ({item}) => (
+  <View style={{width, height}}>
+    <Image
+      source={item?.image}
+      style={{height: '100%', width: '100%', resizeMode: 'cover'}}
+    />
+    <View style={styles.overlay} />
+    <View style={styles.textContainer}>
+      <Text style={styles.title}>{item?.title}</Text>
     </View>
-  );
-};
+  </View>
+);
 
 const Onboarding = ({navigation}) => {
   const [currentSlideIndex, setCurrentSlideIndex] = React.useState(0);
-  const updateCurrentSlideIndex = e => {
-    const contentOffset = e.nativeEvent.contentOffset.x;
-    const currentIndex = Math.round(contentOffset / width);
-    console.log(currentIndex);
-    setCurrentSlideIndex(currentIndex);
-  };
-  const Footer = () => {
-    return (
-      <View style={styles.footerContainer}>
-        {/* indicator container */}
-        <View style={styles.indicatorContainer}>
-          {/* render indicator */}
-          {slides.map((_, index) => (
-            <View
-              key={index}
-              style={[
-                styles.indicator,
-                index === currentSlideIndex && {
-                  backgroundColor: Colors.Light_4,
-                },
-              ]}></View>
-          ))}
-        </View>
-        <View style={{marginBottom: 20}}>
-          <View style={{flexDirection: 'row'}}>
-            <TouchableOpacity
-              onPress={() => navigation.navigate('Login')}
-              style={[
-                styles.btn,
-                {
-                  borderColor: Colors.Light_4,
-                  borderWidth: 1,
-                  backgroundColor: 'transparent',
-                },
-              ]}>
-              <Text style={{color: Colors.Light_4, fontSize: FontSize.B1_Bold}}>
-                Login
-              </Text>
-            </TouchableOpacity>
-            <View style={{width: 15}} />
-            <TouchableOpacity
-              onPress={() => navigation.navigate('SignUp')}
-              style={[styles.btn, {backgroundColor: Colors.Light_4}]}>
-              <Text
-                style={{
-                  color: Colors.Purple_2_Base,
-                  fontSize: FontSize.B1_Bold,
-                }}>
-                Get staerted
-              </Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-      </View>
-    );
+
+  const handleScroll = e => {
+    const contentOffsetX = e.nativeEvent.contentOffset.x;
+    const newIndex = Math.round(contentOffsetX / width);
+    if (newIndex !== currentSlideIndex) {
+      setCurrentSlideIndex(newIndex);
+    }
   };
 
+  const Footer = () => (
+    <View style={styles.footerContainer}>
+      <View style={styles.indicatorContainer}>
+        {slides.map((_, index) => (
+          <View
+            key={index}
+            style={[
+              styles.indicator,
+              index === currentSlideIndex && {
+                backgroundColor: Colors.Light_4,
+              },
+            ]}
+          />
+        ))}
+      </View>
+      <View style={{marginBottom: 20, flexDirection: 'row'}}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('Login')}
+          style={[
+            styles.btn,
+            {
+              borderColor: Colors.Light_4,
+              borderWidth: 1,
+              backgroundColor: 'transparent',
+            },
+          ]}>
+          <Text style={{color: Colors.Light_4, fontSize: FontSize.B1_Bold}}>
+            Login
+          </Text>
+        </TouchableOpacity>
+        <View style={{width: 15}} />
+        <TouchableOpacity
+          onPress={() => navigation.navigate('SignUp')}
+          style={[styles.btn, {backgroundColor: Colors.Light_4}]}>
+          <Text
+            style={{color: Colors.Purple_2_Base, fontSize: FontSize.B1_Bold}}>
+            Get started
+          </Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+
   return (
-    <SafeAreaView
-      style={{
-        flex: 1,
-        backgroundColor: Colors.white,
-      }}>
+    <SafeAreaView style={{flex: 1, backgroundColor: Colors.white}}>
       <StatusBar backgroundColor={Colors.white} />
       <FlatList
-        onMomentumScrollEnd={updateCurrentSlideIndex}
+        onScroll={handleScroll}
         data={slides}
         renderItem={({item}) => <Slide item={item} />}
         horizontal
         pagingEnabled
         showsHorizontalScrollIndicator={false}
+        scrollEventThrottle={16} // to improve scroll performance
       />
-      {/* Render footer component here */}
       <Footer />
     </SafeAreaView>
   );
@@ -121,7 +108,7 @@ export default Onboarding;
 const styles = StyleSheet.create({
   textContainer: {
     position: 'absolute',
-    bottom: 100, // Position title above footer
+    bottom: 100,
     width: '100%',
     alignItems: 'center',
     paddingHorizontal: 15,
@@ -130,16 +117,13 @@ const styles = StyleSheet.create({
     color: Colors.Light_4,
     fontSize: FontSize.H4_Light,
     fontFamily: FontFamily.H4_bold,
-    // textShadowOffset: {width: 4, height: 1},
-    // textShadowRadius: 15,
     fontWeight: 'bold',
     paddingHorizontal: 10,
-
     height: hp(31),
   },
   footerContainer: {
     position: 'absolute',
-    bottom: 16, // Position footer at the bottom
+    bottom: 16,
     width: '100%',
     justifyContent: 'space-between',
     paddingHorizontal: 15,
@@ -148,14 +132,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     marginTop: 20,
-    // color: Colors.Light_0,
   },
   indicator: {
     height: 10,
-    width: 10, // Adjust the size of the indicator
+    width: 10,
     backgroundColor: Colors.Dark_2,
     borderRadius: 7,
-    alignItems: 'center',
     marginHorizontal: 5,
     marginBottom: 40,
   },
