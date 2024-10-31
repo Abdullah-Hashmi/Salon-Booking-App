@@ -6,11 +6,14 @@ import {
   StyleSheet,
 } from 'react-native';
 import {Colors} from '../GlobalStyles';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 const CustomTextInput = ({label, placeholder, value, onChangeText}) => {
   return (
     <View style={styles.inputContainer}>
-      {/* Label for the TextInput */}
       {label && <Text style={styles.label}>{label}</Text>}
       <NativeTextInput
         style={styles.textInput}
@@ -23,26 +26,26 @@ const CustomTextInput = ({label, placeholder, value, onChangeText}) => {
   );
 };
 
+export default CustomTextInput;
+
 const styles = StyleSheet.create({
   inputContainer: {
-    marginVertical: 10, // Space between inputs
-    paddingHorizontal: 10,
-    marginHorizontal: 10,
+    width: wp('90%'),
+    marginVertical: hp('1.2%'),
+    alignSelf: 'center',
   },
   label: {
-    fontSize: 10,
-    color: Colors.Dark_0, // Label color
-    marginBottom: 5,
+    fontSize: wp('3.5%'),
+    color: Colors.Dark_0,
+    marginBottom: hp('0.5%'),
   },
   textInput: {
-    height: 50,
+    height: hp('6%'),
     borderColor: Colors.Dark_4,
     borderWidth: 1,
-    borderRadius: 8,
-    paddingLeft: 15,
-    fontSize: 16,
-    color: '#333', // Text color
+    borderRadius: wp('2%'),
+    paddingHorizontal: wp('4%'),
+    fontSize: wp('4%'),
+    color: '#333',
   },
 });
-
-export default CustomTextInput;

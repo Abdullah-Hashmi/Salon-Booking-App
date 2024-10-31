@@ -1,3 +1,4 @@
+import React, {useState, useCallback} from 'react';
 import {
   StyleSheet,
   Text,
@@ -5,43 +6,60 @@ import {
   StatusBar,
   TouchableOpacity,
 } from 'react-native';
-import React from 'react';
 import {Colors, FontFamily, FontSize} from '../GlobalStyles';
-import CustomTextInput from '../components/CustomTextInput';
-
-// Dimensions for responsive design
+import CustomMainBotton from '../components/CustomMainBotton';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
 const SignUp = ({navigation}) => {
+  const [focusedIndex, setFocusedIndex] = useState(null);
+
+  // Function to handle button press and log the index
+  const handlePress = useCallback(index => {
+    console.log('Focused button index:', index);
+    setFocusedIndex(index);
+  }, []);
+
   return (
     <View style={styles.screencontainer}>
-      {/* StatusBar configuration */}
       <StatusBar
         backgroundColor="transparent"
         barStyle="light-content"
         translucent
       />
+
       {/* Header section */}
       <View style={styles.headercontainer}>
         <Text style={styles.headertitle}>Sign Up</Text>
         <Text style={styles.headertext}>Already Have an Account?</Text>
-        <TouchableOpacity>
-          <Text
-            style={styles.loginText}
-            onPress={() => navigation.navigate('Login')}>
-            Login
-          </Text>
+        <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+          <Text style={styles.loginText}>Login</Text>
         </TouchableOpacity>
       </View>
-      {/* Body Section */}
-      <View style={styles.MainBody}>
-        <CustomTextInput placeholder="Full Name" label="Full Name" />
-        <CustomTextInput placeholder="Email" label="Email" />
-        <CustomTextInput placeholder="Password" label="Password" />
-      </View>
+
+      {/* Scrollable Body Section */}
+      <KeyboardAwareScrollView
+        style={styles.MainBody}
+        contentContainerStyle={{flexGrow: 1}}
+        extraScrollHeight={hp('5%')}
+        enableOnAndroid={true}>
+        {['Button 1', 'Button 2', 'Button 3', 'Button 4', 'Button 5'].map(
+          (buttonName, index) => (
+            <CustomMainBotton
+              key={index}
+              index={index}
+              name={buttonName}
+              color={
+                focusedIndex === index ? Colors.Red_1 : Colors.Purple_2_Base
+              }
+              onPress={() => handlePress(index)}
+            />
+          ),
+        )}
+      </KeyboardAwareScrollView>
     </View>
   );
 };
@@ -54,9 +72,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   headercontainer: {
-    flex: 0.25,
+    height: hp('25%'),
     backgroundColor: Colors.Purple_2_Base,
-    justifyContent: 'flex-end', // Aligns content to the bottom
+    justifyContent: 'flex-end',
     paddingLeft: wp('7%'),
     paddingBottom: hp('3%'),
   },
@@ -68,23 +86,21 @@ const styles = StyleSheet.create({
   },
   headertext: {
     color: Colors.Light_4,
-    fontSize: FontSize.B2_Semibold, // Responsive font size for text
+    fontSize: FontSize.B2_Semibold,
     fontFamily: FontFamily.B2_Semibold,
     fontWeight: 'bold',
     marginTop: hp('2%'),
   },
-
   loginText: {
     color: Colors.Light_4,
-    fontSize: FontSize.B2_Semibold, // Responsive font size for text
+    fontSize: FontSize.B2_Semibold,
     fontFamily: FontFamily.B2_Semibold,
     fontWeight: 'bold',
     marginTop: hp('2%'),
   },
-
   MainBody: {
-    flex: 0.45,
+    flex: 1,
     backgroundColor: 'white',
-    justifyContent: 'center',
+    padding: wp('5%'),
   },
 });
