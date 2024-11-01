@@ -1,4 +1,4 @@
-import React, {useState, useCallback} from 'react';
+import React from 'react';
 import {
   StyleSheet,
   Text,
@@ -7,30 +7,24 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {Colors, FontFamily, FontSize} from '../GlobalStyles';
-import CustomMainBotton from '../components/CustomMainBotton';
+import CustomTextInput from '../components/CustomTextInput';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import CustomMainBotton from '../components/CustomMainBotton';
 
 const SignUp = ({navigation}) => {
-  const [focusedIndex, setFocusedIndex] = useState(null);
-
-  // Function to handle button press and log the index
-  const handlePress = useCallback(index => {
-    console.log('Focused button index:', index);
-    setFocusedIndex(index);
-  }, []);
-
   return (
     <View style={styles.screencontainer}>
+      {/* StatusBar configuration */}
       <StatusBar
         backgroundColor="transparent"
         barStyle="light-content"
         translucent
       />
-
       {/* Header section */}
       <View style={styles.headercontainer}>
         <Text style={styles.headertitle}>Sign Up</Text>
@@ -46,19 +40,14 @@ const SignUp = ({navigation}) => {
         contentContainerStyle={{flexGrow: 1}}
         extraScrollHeight={hp('5%')}
         enableOnAndroid={true}>
-        {['Button 1', 'Button 2', 'Button 3', 'Button 4', 'Button 5'].map(
-          (buttonName, index) => (
-            <CustomMainBotton
-              key={index}
-              index={index}
-              name={buttonName}
-              color={
-                focusedIndex === index ? Colors.Red_1 : Colors.Purple_2_Base
-              }
-              onPress={() => handlePress(index)}
-            />
-          ),
-        )}
+        <CustomTextInput placeholder="Full Name" label="Full Name" />
+        <CustomTextInput placeholder="Email" label="Email" />
+        <CustomTextInput placeholder="Password" label="Password" />
+        <CustomMainBotton
+          name="Sign Up"
+          color={Colors.Purple_2_Base}
+          onPress={() => navigation.navigate('Onboarding')}
+        />
       </KeyboardAwareScrollView>
     </View>
   );
