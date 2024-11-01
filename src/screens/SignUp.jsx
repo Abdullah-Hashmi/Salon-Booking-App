@@ -48,6 +48,11 @@ const SignUp = ({navigation}) => {
           color={Colors.Purple_2_Base}
           onPress={() => navigation.navigate('Onboarding')}
         />
+        <View style={styles.Or_Sign_Up_With}>
+          <View style={styles.line} />
+          <Text style={styles.Or_Sign_Up_With_Text}>Or Sign Up using</Text>
+          <View style={styles.line} />
+        </View>
       </KeyboardAwareScrollView>
     </View>
   );
@@ -91,5 +96,22 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
     padding: wp('5%'),
+  },
+  Or_Sign_Up_With: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: hp('2%'),
+  },
+  line: {
+    flex: 1,
+    height: 1,
+    backgroundColor: Colors.Dark_4,
+    marginHorizontal: wp('2%'),
+  },
+  Or_Sign_Up_With_Text: {
+    color: Colors.Dark_0,
+    fontSize: FontSize.P2_Regular,
+    fontFamily: FontFamily.P2_Regular,
+    fontWeight: 'regular',
   },
 });
