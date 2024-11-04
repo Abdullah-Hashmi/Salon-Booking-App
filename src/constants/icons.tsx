@@ -115,6 +115,9 @@ const light24_shop = require('../assets/icons/icons24px/light/shop.png');
 const light24_sun = require('../assets/icons/icons24px/light/sun.png');
 const light24_trending_up = require('../assets/icons/icons24px/light/trending-up.png');
 const light24_user = require('../assets/icons/icons24px/light/user.png');
+const google = require('../assets/icons/socialmedia_icons/google.png');
+const facebook = require('../assets/icons/socialmedia_icons/facebook.png');
+const twitter = require('../assets/icons/socialmedia_icons/Twitter.png');
 
 export default {
   //dark 16px
@@ -233,4 +236,9 @@ export default {
   light24_trending_up,
   light24_upDown_arrow,
   light24_user,
+
+  // social media icons
+  google,
+  facebook,
+  twitter,
 };

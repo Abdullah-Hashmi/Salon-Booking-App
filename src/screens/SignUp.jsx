@@ -5,21 +5,25 @@ import {
   View,
   StatusBar,
   TouchableOpacity,
+  Image,
 } from 'react-native';
 import {Colors, FontFamily, FontSize} from '../GlobalStyles';
 import CustomTextInput from '../components/CustomTextInput';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import icons from '../constants/icons';
 
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import CustomMainBotton from '../components/CustomMainBotton';
+import Authinputs from '../components/Authinputs';
+import SocialMediaButtons from '../components/SocialMediaButtons';
 
 const SignUp = ({navigation}) => {
   return (
     <View style={styles.screencontainer}>
-      {/* StatusBar configuration */}
+      {/* StatusBar configuration
       <StatusBar
         backgroundColor="transparent"
         barStyle="light-content"
@@ -40,9 +44,7 @@ const SignUp = ({navigation}) => {
         contentContainerStyle={{flexGrow: 1}}
         extraScrollHeight={hp('5%')}
         enableOnAndroid={true}>
-        <CustomTextInput placeholder="Full Name" label="Full Name" />
-        <CustomTextInput placeholder="Email" label="Email" />
-        <CustomTextInput placeholder="Password" label="Password" />
+        <Authinputs />
         <CustomMainBotton
           name="Sign Up"
           color={Colors.Purple_2_Base}
@@ -53,6 +55,26 @@ const SignUp = ({navigation}) => {
           <Text style={styles.Or_Sign_Up_With_Text}>Or Sign Up using</Text>
           <View style={styles.line} />
         </View>
+
+        {/* <View style={styles.socialmediacontainer}>
+          <View style={styles.socialmediabutton}>
+            <Image source={icons.twitter} style={styles.socialmediaimage} />
+            <Text style={styles.socialmediatext}>Social Media</Text>
+          </View>
+          <View style={styles.socialmediabutton}>
+            <Image source={icons.google} style={styles.socialmediaimage} />
+            <Text style={styles.socialmediatext}>Social Media</Text>
+          </View>
+          <View style={styles.socialmediabutton}>
+            <Image source={icons.facebook} style={styles.socialmediaimage} />
+            <Text style={styles.socialmediatext}>Social Media</Text>
+          </View>
+        </View> */}
+
+        <SocialMediaButtons
+          icons={[icons.twitter, icons.google, icons.facebook]} // Use correct icon paths
+          labels={['Twitter', 'Google', 'Facebook']}
+        />
       </KeyboardAwareScrollView>
     </View>
   );
@@ -63,7 +85,7 @@ export default SignUp;
 const styles = StyleSheet.create({
   screencontainer: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: Colors.Red_0,
   },
   headercontainer: {
     height: hp('25%'),
@@ -113,5 +135,28 @@ const styles = StyleSheet.create({
     fontSize: FontSize.P2_Regular,
     fontFamily: FontFamily.P2_Regular,
     fontWeight: 'regular',
+  },
+
+  socialmediacontainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  socialmediatext: {
+    color: Colors.Dark_0,
+    fontSize: FontSize.B2_Semibold,
+    fontFamily: FontFamily.B2_Semibold,
+    fontWeight: 'bold',
+  },
+  socialmediabutton: {
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  socialmediaimage: {
+    width: hp('15%'),
+    height: wp('15%'),
+    resizeMode: 'contain',
+    marginTop: hp('1%'),
+    marginBottom: hp('1%'),
   },
 });
