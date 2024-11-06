@@ -11,7 +11,13 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-const CustomTextInput = ({label, placeholder, value, onChangeText}) => {
+const CustomTextInput = ({
+  label,
+  placeholder,
+  value,
+  onChangeText,
+  secureTextEntry,
+}) => {
   return (
     <View style={styles.inputContainer}>
       {label && <Text style={styles.label}>{label}</Text>}
@@ -21,6 +27,7 @@ const CustomTextInput = ({label, placeholder, value, onChangeText}) => {
         value={value}
         onChangeText={onChangeText}
         placeholderTextColor="#888"
+        secureTextEntry={secureTextEntry}
       />
     </View>
   );
