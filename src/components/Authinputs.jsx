@@ -4,7 +4,7 @@ import CustomTextInput from './CustomTextInput';
 import CustomMainButton from './CustomMainBotton';
 import {Colors} from '../GlobalStyles';
 
-const Authinputs = ({navigation}) => {
+const Authinputs = ({navigation, title}) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -49,7 +49,7 @@ const Authinputs = ({navigation}) => {
 
   const handleSignUp = () => {
     if (validateInputs()) {
-      navigation.navigate('HomeScreen');
+      navigation.navigate('Home');
     }
   };
 
@@ -85,7 +85,7 @@ const Authinputs = ({navigation}) => {
       ) : null}
 
       <CustomMainButton
-        name="Sign Up"
+        name={title}
         onPress={handleSignUp}
         color={Colors.Purple_2_Base}
       />

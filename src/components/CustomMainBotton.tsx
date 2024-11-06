@@ -1,7 +1,13 @@
-import React, {memo} from 'react';
+import React, {memo, FC} from 'react';
 import {TouchableOpacity, Text, StyleSheet} from 'react-native';
 
-const CustomMainBotton = ({name, color, onPress, index}) => {
+interface Props {
+  name: string;
+  color: string;
+  onPress: () => void;
+  index: number;
+}
+const CustomMainBotton: FC<Props> = ({name, color, onPress, index}) => {
   console.log('Rendering button at index:', index);
 
   return (
@@ -13,9 +19,7 @@ const CustomMainBotton = ({name, color, onPress, index}) => {
   );
 };
 
-export default memo(CustomMainBotton, (prevProps, nextProps) => {
-  return prevProps.color === nextProps.color;
-});
+export default CustomMainBotton;
 
 const styles = StyleSheet.create({
   button: {
