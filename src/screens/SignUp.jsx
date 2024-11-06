@@ -1,25 +1,28 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   StyleSheet,
   Text,
   View,
   StatusBar,
   TouchableOpacity,
+  Image,
 } from 'react-native';
 import {Colors, FontFamily, FontSize} from '../GlobalStyles';
 import CustomTextInput from '../components/CustomTextInput';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import icons from '../constants/icons';
 
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import CustomMainBotton from '../components/CustomMainBotton';
+import Authinputs from '../components/Authinputs';
+import SocialMediaButtons from '../components/SocialMediaButtons';
 
 const SignUp = ({navigation}) => {
   return (
     <View style={styles.screencontainer}>
-      {/* StatusBar configuration */}
       <StatusBar
         backgroundColor="transparent"
         barStyle="light-content"
@@ -36,23 +39,22 @@ const SignUp = ({navigation}) => {
 
       {/* Scrollable Body Section */}
       <KeyboardAwareScrollView
-        style={styles.MainBody}
-        contentContainerStyle={{flexGrow: 1}}
+        style={styles.mainBody}
+        contentContainerStyle={styles.scrollContainer}
         extraScrollHeight={hp('5%')}
         enableOnAndroid={true}>
-        <CustomTextInput placeholder="Full Name" label="Full Name" />
-        <CustomTextInput placeholder="Email" label="Email" />
-        <CustomTextInput placeholder="Password" label="Password" />
-        <CustomMainBotton
-          name="Sign Up"
-          color={Colors.Purple_2_Base}
-          onPress={() => navigation.navigate('Onboarding')}
-        />
-        <View style={styles.Or_Sign_Up_With}>
+        <Authinputs navigation={navigation} title="Sign Up" />
+        <View style={styles.orSignUpWith}>
           <View style={styles.line} />
-          <Text style={styles.Or_Sign_Up_With_Text}>Or Sign Up using</Text>
+          <Text style={styles.orSignUpWithText}>Or Sign Up using</Text>
           <View style={styles.line} />
         </View>
+
+        <SocialMediaButtons
+          icons={[icons.twitter, icons.google, icons.facebook]} // Use correct icon paths
+          labels={['Twitter', 'Google', 'Facebook']}
+          Colors={['#03A9F4', '#1976D2', '#3F51B4']}
+        />
       </KeyboardAwareScrollView>
     </View>
   );
@@ -63,7 +65,7 @@ export default SignUp;
 const styles = StyleSheet.create({
   screencontainer: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: Colors.Red_0,
   },
   headercontainer: {
     height: hp('25%'),
@@ -92,15 +94,20 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginTop: hp('2%'),
   },
-  MainBody: {
+  mainBody: {
     flex: 1,
     backgroundColor: 'white',
-    padding: wp('5%'),
   },
-  Or_Sign_Up_With: {
+  scrollContainer: {
+    flexGrow: 1,
+    paddingHorizontal: wp('5%'),
+    paddingVertical: hp('2%'),
+    justifyContent: 'center', // Centers content vertically within the container
+  },
+  orSignUpWith: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: hp('2%'),
+    marginVertical: hp('2%'),
   },
   line: {
     flex: 1,
@@ -108,10 +115,14 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.Dark_4,
     marginHorizontal: wp('2%'),
   },
-  Or_Sign_Up_With_Text: {
+  orSignUpWithText: {
     color: Colors.Dark_0,
     fontSize: FontSize.P2_Regular,
     fontFamily: FontFamily.P2_Regular,
-    fontWeight: 'regular',
+  },
+  socialmediacontainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
 });
